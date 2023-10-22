@@ -8,16 +8,13 @@ DATA_DIR = data
 TEST_DIR = tests
 
 # Tareas
-run:
-	$(PYTHON) $(SRC_DIR)/main.py "../$(DATA_DIR)/sample.csv"
+run: venv
+	$(PYTHON) $(SRC_DIR)/main.py $(DATA_DIR)/sample.csv
 
 install:
 	$(PIP) install -r requirements.txt
 
-venv:
-	$(PYTHON) -m venv venv
-
 clean:
 	rm -rf venv __pycache__
 
-.PHONY: run test install venv clean
+.PHONY: run install clean
